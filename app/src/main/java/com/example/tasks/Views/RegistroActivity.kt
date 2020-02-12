@@ -1,12 +1,14 @@
-package com.example.tasks
+package com.example.tasks.Views
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import com.example.tasks.DataBase.RepositórioUsuario
+import com.example.tasks.R
 import kotlinx.android.synthetic.main.activity_login.*
 
-class LoginActivity : AppCompatActivity(), View.OnClickListener {
+class RegistroActivity : AppCompatActivity(), View.OnClickListener {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,6 +16,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.activity_login)
 
         setListeners()
+        RepositórioUsuario.getInstance(this)
 
     }
 
