@@ -9,7 +9,7 @@ class TaskDataBase(context: Context) :
 
     //O companion serve para deixar estático, só consigo acessar a variável acima se for estática
     companion object {
-        val DATABASE_NOME: String = "tasks,bd"
+        val DATABASE_NOME: String = "tasks.bd"
         val DATABASE_VERSAO: Int = 1
     }
 

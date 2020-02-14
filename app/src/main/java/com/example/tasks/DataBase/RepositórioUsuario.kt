@@ -7,7 +7,7 @@ import android.content.Context
 //singletone só permite ter uma instancia por vez da classe, sempre faz isso com classes de repositorio
 class RepositórioUsuario private constructor(context: Context) {
     //variavel que vaia cessar o banco de dados
-    var mTasksDataBase : TaskDataBase = TaskDataBase(context)
+    var mTasksDataBase: TaskDataBase = TaskDataBase(context)
 
     companion object {
         fun getInstance(context: Context): RepositórioUsuario {
@@ -21,7 +21,7 @@ class RepositórioUsuario private constructor(context: Context) {
         private var INSTANCE: RepositórioUsuario? = null
     }
 
-    fun insert (nome: String, email: String, senha: String): Int{
+    fun insert(nome: String, email: String, senha: String): Int {
         val db = mTasksDataBase.writableDatabase
 
         val insertValues = ContentValues()
