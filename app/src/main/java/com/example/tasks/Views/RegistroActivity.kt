@@ -7,6 +7,8 @@ import android.view.View
 import com.example.tasks.Business.UserBusiness
 import com.example.tasks.DataBase.RepositórioUsuario
 import com.example.tasks.R
+import com.example.tasks.Validacao.ValidacaoException
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_login.*
 
 class RegistroActivity : AppCompatActivity(), View.OnClickListener {
@@ -37,15 +39,20 @@ class RegistroActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun handleSave() {
 
-        val nome = EditNome.text.toString()
-        val email = EditEmail.text.toString()
-        val senha = EditSenha.text.toString()
+        try {
+            val nome = EditNome.text.toString()
+            val email = EditEmail.text.toString()
+            val senha = EditSenha.text.toString()
 
-        //Faz inserção do usuário
-        mUserBusiness.insert(nome, email, senha)
+            //Faz inserção do usuário
+            mUserBusiness.insert(nome, email, senha)
 
 //        val intent = Intent(this, MainActivity::class.java)
 //        startActivity(intent)
+        } catch (e: ValidacaoException){
+            Snackbar.make(LayoutReg, "Preencha todos os campos", Snackbar.LENGTH_LONG).show()
+        }
     }
+
 }
 
