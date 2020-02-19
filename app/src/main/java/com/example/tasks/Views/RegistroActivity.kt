@@ -10,6 +10,7 @@ import com.example.tasks.R
 import com.example.tasks.Validacao.ValidacaoException
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_login.*
+import java.lang.Exception
 
 class RegistroActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -47,11 +48,16 @@ class RegistroActivity : AppCompatActivity(), View.OnClickListener {
             //Faz inserção do usuário
             mUserBusiness.insert(nome, email, senha)
 
-//        val intent = Intent(this, MainActivity::class.java)
-//        startActivity(intent)
-        } catch (e: ValidacaoException){
-            Snackbar.make(LayoutReg, "Preencha todos os campos", Snackbar.LENGTH_LONG).show()
+
+        } catch (e: ValidacaoException) {
+            Snackbar.make(LayoutReg, "${e.message}", Snackbar.LENGTH_LONG).show()
+        } catch (e: Exception) {
+            Snackbar.make(LayoutReg, "Algo deu errado tente novamente!", Snackbar.LENGTH_LONG)
+                .show()
         }
+
+        //        val intent = Intent(this, MainActivity::class.java)
+        //        startActivity(intent)
     }
 
 }
